@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#100d1e" />
+  <title>LingoLoom — Learn a little every day</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="LingoLoom home"><span class="brand-mark">L</span><span>Lingo<span class="brand-light">Loom</span></span></a>
+      <div class="side-label">LEARN</div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">⌂</span> Overview</button>
+        <button class="nav-item" data-view="vocabulary"><span class="nav-icon">▤</span> Vocabulary</button>
+        <button class="nav-item" data-view="lessons"><span class="nav-icon">◫</span> Daily lessons</button>
+        <button class="nav-item" data-view="quiz"><span class="nav-icon">✳</span> Practice quiz</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="streak-card"><div class="streak-icon">✦</div><div><strong id="sideStreak">1 day streak</strong><small>Keep your momentum!</small></div></div>
+        <div class="profile"><div class="avatar">A</div><div><strong>My learning space</strong><small>Beginner level</small></div><span class="dots">•••</span></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <strong id="pageName">Overview</strong></div>
+        <div class="top-actions"><span class="today-pill"><span class="live-dot"></span> Your learning journey</span><div class="top-avatar">A</div></div>
+      </header>
+
+      <section class="content" id="overviewView">
+        <div class="welcome-row">
+          <div><p class="eyebrow">MONDAY, YOUR NEXT CHAPTER STARTS HERE</p><h1>Make room for <span>new words.</span></h1><p class="subheading">Small steps today. A more confident you tomorrow.</p></div>
+          <div class="language-select-wrap"><label for="languageSelect">I'M LEARNING</label><select id="languageSelect"><option value="es">🇪🇸 Spanish</option><option value="fr">🇫🇷 French</option><option value="de">🇩🇪 German</option></select></div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-copy"><span class="hero-tag">✦ TODAY'S FOCUS</span><h2>A little practice<br>goes a <em>long way.</em></h2><p>Build your vocabulary, explore useful phrases and make learning part of your everyday routine.</p><button class="primary-btn" data-go="lessons">Continue learning <span>↗</span></button></div>
+          <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="floating-word word-one">hola</div><div class="floating-word word-two">bonjour</div><div class="floating-word word-three">hallo</div><div class="book-shape"><span>文</span><i>✦</i></div><div class="spark spark-one">✧</div><div class="spark spark-two">✦</div></div>
+        </div>
+
+        <div class="section-heading"><div><p class="eyebrow">YOUR PROGRESS</p><h2>Learning at a glance</h2></div><span class="muted">Saved on this device</span></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon purple">▤</span><span class="trend">↗</span></div><strong id="wordsCount">0</strong><p>Words learned</p><div class="mini-line"><span style="width:38%"></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon peach">✦</span><span class="trend">↗</span></div><strong id="lessonsCount">0</strong><p>Lessons completed</p><div class="mini-line peach-line"><span style="width:24%"></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon blue">◎</span><span class="trend">↗</span></div><strong id="quizCount">0%</strong><p>Quiz best score</p><div class="mini-line blue-line"><span id="quizBar" style="width:0%"></span></div></article>
+          <article class="stat-card"><div class="stat-top"><span class="stat-icon green">♧</span><span class="trend">✦</span></div><strong id="streakCount">1</strong><p>Day learning streak</p><div class="mini-line green-line"><span style="width:15%"></span></div></article>
+        </div>
+
+        <div class="lower-grid">
+          <section class="panel continue-panel"><div class="panel-heading"><div><p class="eyebrow">PICK UP WHERE YOU LEFT OFF</p><h3>Continue your journey</h3></div><span class="round-icon">↗</span></div><div class="lesson-row"><div class="lesson-emoji">👋</div><div class="lesson-info"><strong>Everyday greetings</strong><small>Vocabulary · 5 min</small><div class="progress-track"><span id="lessonProgress"></span></div></div><button class="small-btn" data-go="vocabulary">Start</button></div><div class="lesson-row"><div class="lesson-emoji">💬</div><div class="lesson-info"><strong>Meet and introduce yourself</strong><small>Useful phrases · 7 min</small><div class="progress-track"><span style="width:0%"></span></div></div><button class="small-btn" data-go="lessons">Explore</button></div></section>
+          <section class="panel goal-panel"><p class="eyebrow">DAILY GOAL</p><h3>Consistency is your superpower.</h3><p class="muted">A few minutes of focused practice can make a difference.</p><div class="goal-ring" id="goalRing"><div><strong id="goalNumber">0</strong><small> / 10 min</small></div></div><div class="goal-foot"><span>Today's learning time</span><button class="text-btn" id="addMinute">+ Add 1 min</button></div></section>
+        </div>
+      </section>
+
+      <section class="content hidden" id="vocabularyView">
+        <div class="page-intro"><p class="eyebrow">BUILD YOUR WORD BANK</p><h1>Vocabulary <span>studio.</span></h1><p class="subheading">Meet useful words, hear how they sound and save the ones you know.</p></div>
+        <div class="vocab-toolbar"><div class="filter-tabs"><button class="filter active" data-filter="all">All words</button><button class="filter" data-filter="greetings">Greetings</button><button class="filter" data-filter="daily">Everyday</button></div><span class="muted" id="cardPosition">Card 1 of 8</span></div>
+        <div class="flashcard-area"><button class="arrow-btn" id="prevCard" aria-label="Previous card">‹</button><article class="flashcard" id="flashcard"><div class="card-top"><span class="card-category" id="wordCategory">GREETINGS</span><span class="card-count">LINGOLOOM / 01</span></div><div class="card-center"><div class="word-symbol">✧</div><h2 id="wordFront">Hola</h2><p id="wordHint">Tap to reveal the meaning</p><div class="card-back hidden" id="wordBack"><strong id="wordTranslation">Hello</strong><span id="wordPronunciation">oh-lah</span></div></div><div class="card-bottom"><button class="sound-btn" id="speakWord">🔊 Listen</button><button class="reveal-btn" id="revealWord">Show meaning</button><button class="save-word-btn" id="saveWord">＋ Save word</button></div></article><button class="arrow-btn" id="nextCard" aria-label="Next card">›</button></div>
+        <div class="vocab-note"><span>✦</span> <span id="savedWordsLabel">0 words saved</span><span class="note-separator">·</span> Tip: Say each word out loud to practise pronunciation.</div>
+        <div class="saved-list panel"><div class="panel-heading"><div><p class="eyebrow">YOUR PERSONAL COLLECTION</p><h3>Saved words</h3></div></div><div id="savedWords" class="saved-words"><p class="muted">Words you save will appear here.</p></div></div>
+      </section>
+
+      <section class="content hidden" id="lessonsView">
+        <div class="page-intro"><p class="eyebrow">A FRESH START, EVERY DAY</p><h1>Daily <span>lessons.</span></h1><p class="subheading">Short, practical lessons designed to fit into your day.</p></div>
+        <div class="lesson-cards">
+          <article class="daily-card featured"><div class="daily-card-top"><span class="lesson-label">LESSON 01 · BEGINNER</span><span class="lesson-time">◷ 5 min</span></div><div class="daily-illustration">👋</div><h3>Say hello with confidence</h3><p>Learn simple greetings and friendly ways to start a conversation.</p><div class="lesson-pills"><span>4 key words</span><span>Speaking</span></div><button class="primary-btn lesson-complete" data-lesson="greetings">Mark as complete <span>✓</span></button></article>
+          <article class="daily-card"><div class="daily-card-top"><span class="lesson-label">LESSON 02 · BEGINNER</span><span class="lesson-time">◷ 7 min</span></div><div class="daily-illustration lavender">💬</div><h3>Introduce yourself</h3><p>Share your name and get to know someone with simple phrases.</p><div class="lesson-pills"><span>5 key phrases</span><span>Conversation</span></div><button class="outline-btn lesson-complete" data-lesson="introductions">Mark as complete <span>✓</span></button></article>
+          <article class="daily-card"><div class="daily-card-top"><span class="lesson-label">LESSON 03 · BEGINNER</span><span class="lesson-time">◷ 6 min</span></div><div class="daily-illustration peach-bg">☕</div><h3>Everyday essentials</h3><p>Practise useful words for food, water and everyday moments.</p><div class="lesson-pills"><span>5 key words</span><span>Daily life</span></div><button class="outline-btn lesson-complete" data-lesson="everyday">Mark as complete <span>✓</span></button></article>
+        </div>
+        <div class="panel lesson-tip"><span class="tip-star">✦</span><div><strong>A learning tip</strong><p>Try revisiting yesterday's words before starting a new lesson. Repetition helps new vocabulary stick.</p></div></div>
+      </section>
+
+      <section class="content hidden" id="quizView">
+        <div class="page-intro"><p class="eyebrow">TEST WHAT YOU KNOW</p><h1>Practice <span>makes progress.</span></h1><p class="subheading">A quick check-in to help your new vocabulary stick.</p></div>
+        <div class="quiz-layout"><section class="panel quiz-panel"><div class="quiz-top"><span class="card-category">QUICK VOCABULARY CHECK</span><span id="quizProgress">QUESTION 1 / 5</span></div><div class="quiz-progress"><span id="quizProgressBar"></span></div><div id="quizContent"><p class="eyebrow quiz-overline">CHOOSE THE CORRECT MEANING</p><h2 id="quizQuestion">What does “Hola” mean?</h2><div class="answer-options" id="answerOptions"></div><button class="primary-btn quiz-next" id="quizNext" disabled>Check answer <span>→</span></button></div><div class="quiz-result hidden" id="quizResult"><div class="result-icon">✦</div><p class="eyebrow">QUIZ COMPLETE</p><h2 id="resultTitle">Lovely effort!</h2><div class="result-score" id="resultScore">4/5</div><p id="resultMessage">Every practice session is progress.</p><button class="primary-btn" id="restartQuiz">Try again <span>↻</span></button></div></section><aside class="panel quiz-side"><div class="quiz-side-icon">✧</div><h3>Learning is a journey, not a race.</h3><p>Take your time. Read each question carefully and choose the answer that feels right.</p><div class="quiz-side-stat"><strong id="bestScoreSide">0%</strong><span>Personal best</span></div></aside></div>
+      </section>
+      <footer class="footer"><span>© 2026 LingoLoom</span><span>Learn a little. Grow a lot. <b>✦</b></span></footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>
